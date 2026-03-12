@@ -265,7 +265,7 @@ class FreeplayState extends MusicBeatUIState
 			{
 				CoolUtil.playUISound('cancelMenu');
 				canInteract = false;
-				FlxG.switchState(() -> new PlayMenuState());
+				FlxG.switchState(() -> new MainMenuState());
 			}
 			else if (FlxG.keys.justPressed.CONTROL)
 			{
@@ -647,25 +647,7 @@ class BaldiSongData extends OffsetSprite
 	public var folder:String = "";
 	public var lastDifficulty:String = null;
 	
-	public var isHidden(get, never):Bool;
-	
-	function get_isHidden():Bool
-	{
-		#if debug return false; #end
-		
-		if (songName == 'Lesson') // u r hell
-		{
-			if (Highscore.getScore(songName + '-good', 0) != 0) return false;
-			if (Highscore.getScore(songName + '-good', 1) != 0) return false;
-			// if (Highscore.getScore(songName + '-good', 2) != 0) return false;
-		}
-		
-		if (Highscore.getScore(songName, 0) != 0) return false;
-		if (Highscore.getScore(songName, 1) != 0) return false;
-		// if (Highscore.getScore(songName, 2) != 0) return false;
-		
-		return true;
-	}
+	public var isHidden:Bool = false;
 	
 	public function new(song:String, week:Int, color:FlxColor = FlxColor.WHITE)
 	{
