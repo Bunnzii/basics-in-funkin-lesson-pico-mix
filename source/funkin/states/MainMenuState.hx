@@ -108,7 +108,7 @@ class MainMenuState extends MusicBeatUIState
 		buttons = new FlxTypedContainer();
 		add(buttons);
 		
-		var play = new MenuItem(1486, 356, 'play', () -> FlxG.switchState(PlayMenuState.new));
+		var play = new MenuItem(1486, 356, 'play', () -> FlxG.switchState(funkin.states.freeplay.FreeplayState.new));
 		buttons.add(play);
 		play.button.offset.set(132, 18);
 		play.animOffsets.set('hovered', [2, -1]);
